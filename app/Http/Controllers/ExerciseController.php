@@ -8,13 +8,24 @@ use App\Exercise;
 
 class ExerciseController extends Controller
 {
-    function index($category = NULL){
+    public function index($category, $title = NULL){
 
-    	$exercises = Exercise::all();
+    	if( $title == NULL ){
+    		$exercises = Exercise::where('category', '=', $category)->get();
+    	}else{
+    		$exercises =  Exercise::where('title', '=', $title)
+              // ->orderBy('name', 'desc')
+             //  ->take(10)
+               ->get();
+    	}
+
+    	if (count($exercises) < 1){
+    		$exercises = Exercise::all();
+    	}
     	return view('exercises.index', ['exercises' => $exercises]);
     }
 
-     function store(Request $Request){
+    public function store(Request $request){
 
     	$exercise = new Exercise;
     	
@@ -23,6 +34,28 @@ class ExerciseController extends Controller
     	}
 
     	return 'no yeah';
+
+    }
+
+    public function update(Request $request){
+
+        $exercise = Exercise::findOrFail($request->get('id'));
+        $category = $request->get('category');
+        if ($exercise->update($request->all())) {
+           
+            return redirect('/' .$category);
+
+        }
+
+        return view('exercises.edit', ['exercise' => $exercise]);
+
+
+    }
+
+    public function edit($id){
+
+        $exercise = Exercise::find($id);
+        return view('exercises.edit', ['exercise' => $exercise]);
 
     }
 }

@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/{category?}', 'ExerciseController@index');
+Route::get('/{category}/{title?}', 'ExerciseController@index');
+
+Route::get('/exercise/edit/{id}', 'ExerciseController@edit');
+Route::put('/exercise/edit/{id}', 'ExerciseController@update');
