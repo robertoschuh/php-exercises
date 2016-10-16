@@ -6,6 +6,6 @@
 	<p>{{ $exercise['body'] }}</p>
 	<p>{{ $exercise['solution'] }}</p>
 	<p>
-	<a href="/exercise/edit/{{ $exercise['id'] }}"> Edit</a>
+	<a href="/admin/exercise/edit/{{ $exercise['id'] }}"> Edit</a>
 	</p>
 @endforeach

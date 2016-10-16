@@ -6,21 +6,23 @@
 @endsection
 
 @section('header')
+    Php exercises
 @endsection
 @section('content')
-    <h3>Exercises</h3>
+    <h3>New exercise</h3>
 
-    @if( count($exercises) > 0 )
-    <div class="exercise">
-        @include('partials._exercises')
-    </div>    
-    @else
     <div class="alert">
-        <p>
-            PHP exercises, sometime is easy forget, this kind of exercises are good to refresh your PHP skills.       
+        <p>       
+        {!! Form::open(['action' => 'ExerciseController@store'], ['method' => 'post']) !!}
+
+        @include('partials.forms._exercise_edit_form', 
+        ['submitButton' => 'Create exercise'])
+                     
+        {!! Form::close() !!}
+               
         </p>
     </div>
-    @endif
+
 
 @endsection
 

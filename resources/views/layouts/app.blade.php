@@ -23,6 +23,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <a href="/admin/exercise/new">Create new</a>
+
                 @yield('header')
             </div>
         </div>

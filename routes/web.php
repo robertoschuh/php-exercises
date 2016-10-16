@@ -11,7 +11,18 @@
 |
 */
 
+Route::get('/', function () {
+    return view('pages.index');
+});
 Route::get('/{category}/{title?}', 'ExerciseController@index');
 
-Route::get('/exercise/edit/{id}', 'ExerciseController@edit');
-Route::put('/exercise/edit/{id}', 'ExerciseController@update');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/exercise/edit/{id}', 'ExerciseController@edit');
+	Route::put('/exercise/edit/{id}', 'ExerciseController@update');
+	Route::get('/exercise/new', function () {
+	    return view('exercises.new');
+	});
+	Route::post('/exercise/store', 'ExerciseController@store');
+
+});
+

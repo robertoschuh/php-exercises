@@ -25,15 +25,20 @@ class ExerciseController extends Controller
     	return view('exercises.index', ['exercises' => $exercises]);
     }
 
+
     public function store(Request $request){
 
     	$exercise = new Exercise;
-    	
-    	if ($exercise->update($request->all())) {
-    		return 'yeah';
-    	}
+    	$exercise->category = $request->category;
+        $exercise->title = $request->title;
+        $exercise->body = $request->body;
+        $exercise->solution = $request->solution;
 
-    	return 'no yeah';
+    	if ($exercise->save()) {
+    		return redirect('/' .$exercise->category. '/' .$exercise->title);
+    	}
+     
+    	return view('exercises.index', ['exercises' => $exercise]);
 
     }
 
@@ -58,4 +63,19 @@ class ExerciseController extends Controller
         return view('exercises.edit', ['exercise' => $exercise]);
 
     }
+ /*
+    public function store(Request $request){
+
+        $exercise = new Exercise;
+        $exercise->category = $request->category;
+        $exercise->title = $request->title;
+        $exercise->body = $request->body;
+        $exercise->solution = $request->solution;
+
+        if ($exercise->save()) {        
+            return redirect('/' .$exercise->category. '/' .$exercise->title);
+        }
+
+        return view('exercises.index');
+    } */
 }
