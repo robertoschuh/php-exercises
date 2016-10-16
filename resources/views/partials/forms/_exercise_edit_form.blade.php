@@ -22,14 +22,14 @@
   </div>
   <div class="form-group">
     <label for="body">Description:</label>
-    <textarea class="form-control" rows="5" name="body">
+    <textarea class="form-control" style="width:auto"  name="body" id="body">
       {{ $defaultBody }}
     </textarea>
 
   </div>
    <div class="form-group">
     <label for="solution">Solution:</label>
-    <textarea class="form-control" rows="5" name="solution">
+    <textarea class="form-control" style="width:auto"  name="solution" id="solution">
     
       {{ $defaultSolution }}
     
@@ -40,3 +40,21 @@
     <input type="hidden" name="id" value="{{ $exercise['id'] }}">
   <?php } ?> 
   <button type="submit" class="btn btn-default">{{ $submitButton }}</button>
+
+@section('scripts')
+
+  <script src="{!!asset('/js/summernote.min.js')!!}"></script> 
+
+ <script type="text/javascript">
+        $(document).ready(function() {
+            $('#body').summernote({
+              height:300,
+            
+            });
+            $('#solution').summernote({
+              height:300,
+            
+            });
+        });
+    </script>
+@endsection
