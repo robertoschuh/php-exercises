@@ -3,8 +3,8 @@
 
 	</p>
 	<h3>{{ $exercise['title'] }}</h3>
-	<p>{{ $exercise['body'] }}</p>
-	<p>{{ $exercise['solution'] }}</p>
+	<p>{!! $exercise['body'] !!}</p>
+	<p>{!! $exercise['solution'] !!}</p>
 	<p>
 	<a href="/admin/exercise/edit/{{ $exercise['id'] }}"> Edit</a>
 	</p>

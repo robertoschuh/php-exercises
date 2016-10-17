@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+Route::get('/', 'LessonController@index');
+
 Route::get('/{category}/{title?}', 'ExerciseController@index');
 
 Route::group(['prefix' => 'admin'], function () {
