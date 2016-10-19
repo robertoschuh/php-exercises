@@ -2,7 +2,7 @@
 
 @section('page-title')
 
-    <h3>Página de alertas</h3>
+    <h3>Página de categoría</h3>
 @endsection
 
 @section('header_nav')
@@ -15,16 +15,16 @@
 @endsection
 
 @section('content')
-    <h3>Edit exercise # {{ $exercise['id'] }}</h3>
+    <h3>Edit category # {{ $exercise['id'] }}</h3>
 
     <div class="alert">
         <p>
-            PHP exercises, sometime is easy forget, this kind of exercises are good to refresh your PHP skills. 
-        {!! Form::model($exercise, ['method' => 'PUT', 
-        'action' => ['ExerciseController@update', $exercise->id]])
+            sssss ss sforget, this kind of exercises are good to refresh your PHP skills. 
+        {!! Form::model($category, ['method' => 'PUT', 
+        'action' => ['CategoryController@update', $exercise->id]])
         !!}
 
-        @include('partials.forms._exercise_edit_form', 
+        @include('partials.forms._category_edit_form', 
         ['submitButton' => 'Save changes'])
                      
         {!! Form::close() !!}

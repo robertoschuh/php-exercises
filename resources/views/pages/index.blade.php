@@ -5,18 +5,23 @@
     <h3>Página de alertas</h3>
 @endsection
 
-@section('header')
-    Php exercises
+@section('header_nav')
+    @parent
 @endsection
+
+@section('sidebar_left')
+    @parent
+@endsection
+
 @section('content')
-    <h3>Exercises</h3>
+    <h3>index</h3>
 
     Repasa o aprende los conpectos de PHP con ejercicios.
 
 @endsection
 
-@section('sidebar')
-      @include('partials._exercises_menu')
+@section('sidebar_right')
+      @parent
 
 @endsection
 

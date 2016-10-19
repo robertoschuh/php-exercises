@@ -18,7 +18,7 @@ class CreateExercisesTable extends Migration
             $table->string('title', 150);
             $table->text('body');
             $table->text('solution');
-            $table->string('category');
+            $table->boolean('published')->default(0);
             $table->timestamps();
         });
     }

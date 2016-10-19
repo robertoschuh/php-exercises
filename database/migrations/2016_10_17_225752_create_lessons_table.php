@@ -22,6 +22,7 @@ class CreateLessonsTable extends Migration
             $table->integer('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')
             ->on('categories');
+            $table->boolean('published')->default(0);
 
         });
     }

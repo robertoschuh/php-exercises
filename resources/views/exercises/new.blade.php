@@ -5,9 +5,16 @@
     <h3>Página de alertas</h3>
 @endsection
 
-@section('header')
-    Php exercises
+@section('header_nav')
+    @parent
 @endsection
+
+@section('sidebar_left')
+      @parent
+
+@endsection
+
+
 @section('content')
     <h3>New exercise</h3>
 
@@ -26,10 +33,13 @@
 
 @endsection
 
-@section('sidebar')
-      @include('partials._exercises_menu')
+
+@section('sidebar_right')
+      @parent
 
 @endsection
+
+
 
 @section('footer')
 

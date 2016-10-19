@@ -13,7 +13,7 @@
 
 Route::get('/', 'LessonController@index');
 
-Route::get('/{category}/{title?}', 'ExerciseController@index');
+//Route::get('/{category}/{title?}', 'ExerciseController@index');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/exercise/edit/{id}', 'ExerciseController@edit');
@@ -22,6 +22,20 @@ Route::group(['prefix' => 'admin'], function () {
 	    return view('exercises.new');
 	});
 	Route::post('/exercise/store', 'ExerciseController@store');
+
+	Route::get('/lesson/new', function () {
+	    return view('lessons.new');
+	});
+
+	Route::post('/lesson/store', 'LessonController@store');
+
+    Route::get('/categories', 'CategoryController@index');
+    Route::get('/category/new', function () {
+	    return view('categories.new');
+	});
+
+	Route::post('/category/store', 'CategoryController@store');
+
 
 });
 

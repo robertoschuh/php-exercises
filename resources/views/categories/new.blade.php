@@ -11,30 +11,38 @@
 
 @section('sidebar_left')
       @parent
+
 @endsection
 
-@section('content')
-    <h3>Lessons</h3>
 
-    @if( count($lessons) > 0 )
-    <div class="lesson">
-        @include('partials._lesson')
-    </div>    
-    @else
+@section('content')
+    <h3>New category</h3>
+
     <div class="alert">
-        <p>
-            PHP exercises, sometime is easy forget, this kind of exercises are good to refresh your PHP skills.       
+        <p>       
+        {!! Form::open(['action' => 'CategoryController@store'], ['method' => 'post']) !!}
+
+        @include('partials.forms._category_edit_form', 
+        ['submitButton' => 'Create category'])
+                     
+        {!! Form::close() !!}
+               
         </p>
     </div>
-    @endif
+
 
 @endsection
 
 
 @section('sidebar_right')
       @parent
+
 @endsection
 
+
+
 @section('footer')
+
     Piè de página
 @endsection
+

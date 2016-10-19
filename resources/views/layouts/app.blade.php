@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>Php exercises</title>
 
   
     {!! Html::style('css/bootstrap.css') !!}
@@ -26,9 +26,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <a href="/admin/exercise/new">Create new</a>
-
-                @yield('header')
+           
+                @section('header_nav')
+                    @include('partials._nav_bar_header')
+                @endsection
+                @yield('header_nav')      
             </div>
         </div>
 <div class="row">
@@ -36,16 +38,32 @@
         <div id="sidebar">
             <!-- aqui el partial -->
            <!-- @yield('sidebar') -->
-           @yield('sidebar')
+          @section('sidebar_left')
+            @include('partials._lessons_menu')
+            @yield('sidebar_left')
+          @endsection
+
         </div>
     </div>
 
-    <div class="col-md-10 container-fluid">
+    <div class="col-md-8 container-fluid">
         <div id="content">
             @yield('content')
           
         </div>
     </div>
+
+    <div class="col-md-2 container-fluid" style="float:left">
+        <div id="sidebar">
+            <!-- aqui el partial -->
+           <!-- @yield('sidebar') -->
+           @section('sidebar_right')
+            @include('partials._exercises_menu')
+            @yield('sidebar_right')
+           @endsection  
+        </div>
+    </div>
+
 
 
 </div>

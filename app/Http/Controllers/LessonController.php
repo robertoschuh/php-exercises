@@ -15,4 +15,20 @@ class LessonController extends Controller
     	return view('lessons.index', ['lessons' => $lessons]);
     }
 
+
+
+    public function store(Request $request){
+
+    	$lesson = new Lesson;
+    	$lesson->level = $request->level;
+        $lesson->explanation = $request->explanation;
+        $lesson->resources = $request->resources;
+        $lesson->published = 1;
+
+    	if ($lesson->save()) {
+    		return redirect('/');
+    	}
+     
+    }
+
 }
